@@ -1,0 +1,4 @@
+[
+	{"path": "/", "action":{"template":"hello.ejs", "params":[]} },
+	{"path":"/hello","action":"hello"}
+]
