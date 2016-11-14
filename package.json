@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "scripts": {
-
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/radamuspl/citest.git"
@@ -14,6 +12,13 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/radamuspl/citest/issues"
+  },
+  "dependencies": {
+    "async": "^0.2.10",
+    "aws-sdk": "^2.7.0",
+    "ejs": "^1.0.0",
+    "moment": "^2.5.1",
+    "webs-weeia": "0.0.2"
   },
   "homepage": "https://github.com/radamuspl/citest#readme"
 }
