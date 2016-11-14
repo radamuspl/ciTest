@@ -1,4 +1,4 @@
-(function() 
+(function()
 {
 	var helpers = require("./helpers");
 	var ACTIONS_FOLDER = "./actions/";
@@ -14,7 +14,7 @@
             actionsConfig.forEach(function(elem){
 	            if(elem.action && elem.path){
 		            if(!elem.action.template){
-			            elem.action = require(ACTIONS_FOLDER + elem.action).action;
+			            elem.action = require(ACTIONS_FOLDER + elem.action).action(AWS);
 		            }
 	            }else {
 		            console.log("unknown configuration: " + JSON.stringify(elem));
@@ -26,9 +26,9 @@
 
         service(PORT);
 	}
-		
-	
+
+
 	require("./awshelpers").initAWS(init, AWS_CONFIG_FILE);
-		
+
 
 })();
