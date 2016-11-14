@@ -9,12 +9,12 @@
 
 
 	var init = function(AWS) {
-			var actionsConfig = helpers.readJSONFile(ACTIONS_CONFIG_FILE);
-
+						var actionsConfig = helpers.readJSONFile(ACTIONS_CONFIG_FILE);
+						var actionsConfiguration = {aws:AWS};
             actionsConfig.forEach(function(elem){
 	            if(elem.action && elem.path){
 		            if(!elem.action.template){
-			            elem.action = require(ACTIONS_FOLDER + elem.action).action(AWS);
+			            elem.action = require(ACTIONS_FOLDER + elem.action).action(actionsConfiguration);
 		            }
 	            }else {
 		            console.log("unknown configuration: " + JSON.stringify(elem));
