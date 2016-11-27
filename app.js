@@ -9,12 +9,14 @@
 
 
 	var init = function(AWS) {
-						var actionsConfig = helpers.readJSONFile(ACTIONS_CONFIG_FILE);
-						var actionsConfiguration = {aws:AWS};
+			var actionsConfig = helpers.readJSONFile(ACTIONS_CONFIG_FILE);
+			var actionsConfiguration = {aws:AWS};
+			var configurator = require("./actionConfigurator").configurator;
             actionsConfig.forEach(function(elem){
 	            if(elem.action && elem.path){
 		            if(!elem.action.template){
-			            elem.action = require(ACTIONS_FOLDER + elem.action).action(actionsConfiguration);
+			            //elem.action = require(ACTIONS_FOLDER + elem.action).action(actionsConfiguration);
+						elem.action = configurator(require(ACTIONS_FOLDER + elem.action).action,actionsConfiguration);
 		            }
 	            }else {
 		            console.log("unknown configuration: " + JSON.stringify(elem));
@@ -22,9 +24,9 @@
             });
 
 
-        var service = require("webs-weeia").http(actionsConfig);
+        	var service = require("webs-weeia").http(actionsConfig);
 
-        service(PORT);
+        	service(PORT);
 	}
 
 
