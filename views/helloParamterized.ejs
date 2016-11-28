@@ -22,5 +22,24 @@
 	    		</div>
 		  	</div>
 		  </div>
+
+			<div class="container">
+		<section id="section1" class="panel panel-default">
+
+			<div class="panel-heading">
+			<div class="container">
+	    		<h3 class="panel-title">Buckets</h3>
+	    		</div>
+					<div class="panel-body">
+						<ul class="list-group">
+						<% buckets.forEach(function(elem){ %>
+						<li class="list-group-item"><%=elem.Name %></li>
+						<%}); %>
+						
+				</ul>
+  			</div>
+		  	</div>
+		  </div>
+
 </body>
 </html>
